@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Registar - CBR</title>
+   <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+     <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+   <!-- Latest compiled JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/landing.css">
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+    <!--Custom JS-->
+    <script src="scriptscbr.js"></script>
+    
+    </head>
+    <body>
+        <div class="header">
+            <a href="landing.html" class="logo">Centro das Bibliotecas da Rua</a>
+            <div class="header-right">
+                <a href="landing.html">Home</a>
+                <a href="login.html">Login</a>
+                <a class="active">Registar</a>
+            </div>
+        </div>
+        
+    <div class="container">
+        <form id="formRegister" class="form-signup">
+        <h2>Criar uma Conta</h2>
+        <input type="text" maxlength="30" id="registerName" class="form-control" placeholder="Nome" required autofocus>
+
+        <input type="email" maxlength="20" id="registerEmail" class="form-control" placeholder="Email" required>
+                
+        <input type="password" maxlength="10" id="passwordRegister" class="form-control" placeholder="Password" required>
+
+        <input type="password" id="passwordConfirmation" class="form-control" placeholder="Confirmar Password" required>
+        <br/>
+        <label>Enviar uma foto (Opcional)</label>
+        <input type="file" id="registerPhoto" name="photo" class="inputfile" accept="image/png, image/jpeg">
+    
+        <br/><br/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="registar"  >Registar</button>
+        <p><center><a href="login.html">Já tem uma conta? Faça login.</a></center></p>
+        </form>
+    </div> <!-- /container -->
+
+    <script>
+    	loadLocalStorageUsers();
+        var loggedInUser = localStorage.getItem("loggedInUser");
+        var loggedInUserPos = localStorage.getItem("loggedInUserPos");
+        if (loggedInUser != null)
+          {
+             if(users[loggedInUserPos].type == 2)
+              {
+                  window.location.href = "dashboard.html";
+              }
+              else if(users[loggedInUserPos].type == 1)
+              {
+                  window.location.href = "dashboardOperator.html";
+              }
+              else if(users[loggedInUserPos].type == 0)
+              {
+                  window.location.href = "dashboardAdmin.html";
+              }
+          }
+      </script>
+</body>
+
+

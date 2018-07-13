@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Centro das Bibliotecas da Rua</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="js/jquery.js"></script>
+         <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+    <!--Custom JS-->
+    <script src="scriptscbr.js"></script>
+
+    </head>
+  <body>
+  <div class="header">
+            <a href="dashboard.html" class="logo">Centro das Bibliotecas da Rua <h5 id="userLoggedIn"></h5></a> 
+            <div class="header-right">
+                <a href="dashboard.html">Home</a>
+                <a href="notifications.html">Notificações</a>
+                <a href="comments.html">Comentar e Pontuar</a>
+                <a href="deliver.html">Entregar</a>
+                <a class="active">Requisitar</a>
+                <a id="logout" href="#">Logout</a>
+            </div>
+  </div>
+  <div class="container">
+        <form id="formRequest" class="form-request">
+            <br>
+            <h2>Requisitar um livro</h2>
+            <label>Livros disponíveis</label>
+            <select id="booksAvailable" class="form-control" required>
+
+            </select>
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Requisitar</button><br>
+        </form>
+    </div> <!-- /container -->
+  <script>
+        loadLocalStorageUsers();
+        var loggedInUser = localStorage.getItem("loggedInUser");
+        var loggedInUserPos = localStorage.getItem("loggedInUserPos");
+         if (loggedInUser == null)
+		{
+			window.location.href = "landing.html";
+		}
+        else{
+            if(users[loggedInUserPos].type == 1)
+            {
+                window.location.href = "dashboardOperator.html";
+            }
+            else if(users[loggedInUserPos].type == 0)
+            {
+                window.location.href = "dashboardAdmin.html";
+            }
+    }
+      </script>
+  </body>
