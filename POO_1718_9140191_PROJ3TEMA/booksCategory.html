@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Centro das Bibliotecas da Rua</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="js/jquery.js"></script>
+         <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+    <!--Custom JS-->
+    <script src="scriptscbr.js"></script>
+
+    </head>
+  <body>
+  <div class="header">
+            <a href="dashboardAdmin.html" class="logo">Centro das Bibliotecas da Rua <h5 id="userLoggedIn"></h5></a> 
+            <div class="header-right">
+                <a href="dashboardAdmin.html">Home</a>
+                <a href="config.html">Configurações</a>
+                <a id="logout" href="#">Logout</a>
+            </div>
+  </div>
+<div style="text-align:center">
+                <h5><a href="booksCategoryInsert.html">Inserir Categoria</a></h5>
+                <h5><a href="booksCategoryEdit.html">Editar Categoria</a></h5>
+                <h5><a href="booksCategoryAssociate.html">Associar Categoria de Livro</a></h5>
+</div>
+
+  <script>
+        loadLocalStorageUsers();
+        localStorage.removeItem("editUser");
+        var loggedInUser = localStorage.getItem("loggedInUser");
+        var loggedInUserPos = localStorage.getItem("loggedInUserPos");
+         if (loggedInUser == null)
+		{
+			window.location.href = "landing.html";
+		}
+        else{
+            if(users[loggedInUserPos].type == 1)
+            {
+                window.location.href = "dashboardOperator.html";
+            }
+            else if(users[loggedInUserPos].type == 2)
+            {
+                window.location.href = "dashboard.html";
+            }
+    }
+      </script>
+  </body>
